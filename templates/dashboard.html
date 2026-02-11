@@ -3,7 +3,43 @@
 {% block content %}
 <h1>Stock Dashboard</h1>
 
-<p>This dashboard will show your investments, live prices, and profit/loss.</p>
+<h3>Add Stock</h3>
+<form method="POST">
+    <input name="symbol" placeholder="NSE Symbol (TMCV / INFOSYS / TMPV)" required>
+    <input name="quantity" type="number" placeholder="Quantity" required>
+    <input name="buy_price" type="number" step="0.01" placeholder="Buy Price" required>
+    <input name="buy_date" type="date" placeholder="Buy Date" required>
+    <button type="submit">Add Stock</button>
+</form>
 
-<p>Next step: Add stocks & fetch live data</p>
+<hr>
+
+<h3> Your Investments</h3>
+
+<table>
+    <tr>
+        <th>Symbol</th>
+        <th>Quantity</th>
+        <th>Buy Price</th>
+        <th>Current</th>
+        <th>P/L</th>
+        <th>%Change</th>
+        <th>Action</th>
+    </tr>
+
+    {% for stock in stocks %}
+    <tr>
+        <td>{{ stock.symbol }}</td>
+        <td>{{ stock.quantity }}</td>
+        <td>{{ stock.buy_price }}</td>
+        <td>{{ stock.current_price }}</td>
+        <td>{{ stock.profit }}</td>
+        <td>{{ stock.percent }}</td>
+        <td>
+            <a href="/delete/{{ stock.id }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
 {% endblock %}
