@@ -23,3 +23,31 @@ def init_db():
     ''')
     conn.commit()
     conn.close()
+
+def add_stock(symbol, quantity, buy_price, buy_date):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+                   INSERT INTO portfolio (symbol, quantity, buy_price, buy_date)
+        VALUES (?, ?, ?, ?)""", (symbol.upper(), quantity, buy_price, buy_date))
+
+    conn.commit()
+    conn.close()
+
+def get_all_stocks():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM portfolio")
+    rows = cursor.fetchall()
+
+    conn.close()
+    return rows
+
+def delete_stock(stock_id):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM portfolio WHERE id = ?", (stock_id,))
+    conn.commit()
+    conn.close()
