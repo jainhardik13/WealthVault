@@ -5,7 +5,8 @@
 
 <h3>Add Stock</h3>
 <form method="POST">
-    <input name="symbol" placeholder="NSE Symbol (TMCV / INFOSYS / TMPV)" required>
+    <input name="symbol" id="symbolInput" placeholder="Search NSE Stock (TCS, Reliance)" autocomplete="OFF" required>
+    <ul id = "searchResults"></ul>
     <input name="quantity" type="number" placeholder="Quantity" required>
     <input name="buy_price" type="number" step="0.01" placeholder="Buy Price" required>
     <input name="buy_date" type="date" placeholder="Buy Date" required>
