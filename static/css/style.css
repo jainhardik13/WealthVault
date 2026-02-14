@@ -1,0 +1,15 @@
+#searchResults {
+    list-style: none;
+    padding: 0;
+    max-width: 300px;
+    border: 1px solid #ccc;
+}
+
+#searchResults li {
+    padding: 5px;
+    background: #fff;
+}
+
+#searchResults li:hover {
+    background: #eee;
+}

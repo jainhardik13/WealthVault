@@ -11,6 +11,8 @@ from flask import Flask, render_template
 from dotenv import load_dotenv
 from models.portfolio_models import init_db
 from routes.portfolio_routes import portfolio_bp
+from routes.search_routes import search_bp
+
 import os
 
 load_dotenv()
@@ -22,6 +24,7 @@ app.secret_key = os.getenv("SECRET_KEY")
 init_db()
 
 app.register_blueprint(portfolio_bp)
+app.register_blueprint(search_bp)
 
 @app.route("/")
 def home():
