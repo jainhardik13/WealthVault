@@ -1,0 +1,10 @@
+RESUME PLACEHOLDER
+
+This is a placeholder file.
+
+Instructions:
+1. Replace this file with your actual resume PDF
+2. Keep the filename as "resume.pdf"
+3. Place it in the static/ folder
+
+Your resume will be downloadable from the portfolio homepage.

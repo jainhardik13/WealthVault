@@ -1,0 +1,83 @@
+# BSE Stock Codes Reference
+================================
+
+This file contains commonly used BSE stock codes for popular Indian companies.
+BSE uses numeric codes instead of ticker symbols like NSE.
+
+## How to Use BSE Stocks in WealthVault:
+1. Select "BSE (Bombay Stock Exchange)" from the Exchange dropdown
+2. Enter the BSE stock code (numeric) in the Symbol field
+3. Example: For TCS, use "532540" instead of "TCS"
+
+## Popular BSE Stock Codes:
+
+### IT & Technology
+- TCS (Tata Consultancy Services): 532540
+- INFOSYS: 500209
+- WIPRO: 507685
+- TECH MAHINDRA: 532755
+- HCL TECHNOLOGIES: 532281
+
+### Banking & Finance
+- HDFC BANK: 500180
+- ICICI BANK: 532174
+- STATE BANK OF INDIA: 500112
+- AXIS BANK: 532215
+- KOTAK MAHINDRA BANK: 500247
+
+### Energie & Oil
+- RELIANCE INDUSTRIES: 500325
+- ONGC: 500312
+- INDIAN OIL: 530965
+- BPCL: 500547
+- NTPC: 532555
+
+### Automobile
+- MARUTI SUZUKI: 532500
+- TATA MOTORS: 500570
+- BAJAJ AUTO: 532977
+- MAHINDRA & MAHINDRA: 500520
+- HERO MOTOCORP: 500182
+
+### FMCG & Consumer
+- HINDUSTAN UNILEVER: 500696
+- ITC: 500875
+- NESTLE INDIA: 500790
+- BRITANNIA: 500825
+- DABUR INDIA: 500096
+
+### Pharma & Healthcare
+- SUN PHARMA: 524715
+- DR. REDDY'S: 500124
+- CIPLA: 500087
+- LUPIN: 500257
+- AUROBINDO PHARMA: 524804
+
+### Metals & Mining
+- TATA STEEL: 500470
+- JSW STEEL: 500228
+- HINDALCO: 500440
+- VEDANTA: 500295
+- COAL INDIA: 533278
+
+### Telecom
+- BHARTI AIRTEL: 532454
+- VODAFONE IDEA: 532822
+
+### Others
+- ADANI ENTERPRISES: 512599
+- LARSEN & TOUBRO: 500510
+- ASIAN PAINTS: 500820
+- ULTRATECH CEMENT: 532538
+
+## Finding BSE Codes:
+If you need to find a BSE code not listed here:
+1. Visit: https://www.bseindia.com/
+2. Search for the company name
+3. The BSE code (Scrip Code) will be displayed in the stock details
+
+## Note:
+- BSE codes are numeric (6 digits)
+- NSE uses alphabetic symbols (e.g., TCS, RELIANCE)
+- Make sure to select the correct exchange when adding stocks
+- Historical charts currently only support NSE stocks

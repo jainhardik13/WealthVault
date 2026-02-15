@@ -1,18 +1,91 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Hardik Jain</h1>
+<div class="portfolio-section">
+    <header class="hero">
+        <h1>Hardik Jain</h1>
+        <p class="tagline">Full-Stack Developer | Python Enthusiast | Stock Market Analyst</p>
+    </header>
 
-<h2>About Me</h2>
-<p>
-This is my personal portfolio and stock tracking application built using Python,
-Flask, SQLite, and AI.
-</p>
+    <section class="about">
+        <h2>About Me</h2>
+        <p>
+            I am a passionate full-stack developer specializing in Python, Flask, and modern web technologies.
+            With a keen interest in financial technology, I built WealthVault - a personal portfolio and stock tracking
+            application that combines real-time data analysis with AI-powered insights.
+        </p>
+        <p>
+            My expertise lies in creating data-driven applications that solve real-world problems. I enjoy working
+            with web scraping, API integrations, and building intuitive user interfaces.
+        </p>
+    </section>
 
-<h2>Projects</h2>
-<ul>
-    <li>Stockfolio – Portfolio + Stock Tracker</li>
-</ul>
+    <section class="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Backend</h3>
+                <ul>
+                    <li>Python (Flask, FastAPI)</li>
+                    <li>SQL (SQLite, PostgreSQL)</li>
+                    <li>RESTful APIs</li>
+                    <li>Web Scraping (BeautifulSoup, NSEPython)</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Frontend</h3>
+                <ul>
+                    <li>HTML5, CSS3, JavaScript</li>
+                    <li>Chart.js for data visualization</li>
+                    <li>Bootstrap & Responsive Design</li>
+                    <li>AJAX & Fetch API</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>AI & Tools</h3>
+                <ul>
+                    <li>Google Gemini API</li>
+                    <li>Git & GitHub</li>
+                    <li>AWS (EC2, Elastic Beanstalk)</li>
+                    <li>Environment Management (.env)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<a href="/dashboard">Go to Stock Dashboard</a>
+    <section class="projects">
+        <h2>Featured Project</h2>
+        <div class="project-card">
+            <h3>WealthVault - Stock Portfolio Tracker</h3>
+            <p><strong>Tech Stack:</strong> Python, Flask, SQLite, Chart.js, Gemini AI, NSE Web Scraping</p>
+            <p><strong>Features:</strong></p>
+            <ul>
+                <li>Real-time stock price tracking for Indian stocks (NSE)</li>
+                <li>Automated profit/loss calculation</li>
+                <li>Interactive price history charts using Chart.js</li>
+                <li>AI-powered stock predictions and portfolio insights using Google Gemini</li>
+                <li>Live stock search with autocomplete</li>
+                <li>CRUD operations for portfolio management</li>
+            </ul>
+            <p><strong>Key Highlights:</strong></p>
+            <ul>
+                <li>Integrated NSE India's historical data (Bhavcopy) for 30-day price analysis</li>
+                <li>Built custom AI prompts for educational stock analysis</li>
+                <li>Implemented real-time data fetching with proper rate limiting</li>
+                <li>Designed responsive UI with modal-based interactions</li>
+            </ul>
+            <a href="/dashboard" class="btn-primary">View Live Dashboard →</a>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Get In Touch</h2>
+        <p>
+            <strong>Email:</strong> hardikjain@example.com<br>
+            <strong>GitHub:</strong> <a href="https://github.com/hardikjain" target="_blank">github.com/hardikjain</a><br>
+            <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/hardikjain" target="_blank">linkedin.com/in/hardikjain</a>
+        </p>
+        <a href="/static/resume.pdf" download class="btn-download">📄 Download Resume</a>
+    </section>
+</div>
 {% endblock %}
