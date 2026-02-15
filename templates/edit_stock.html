@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Edit Stock</h1>
+
+<form method="POST">
+    <label>Symbol:</label>
+    <input name="symbol" value="{{ stock.symbol }}" required>
+
+    <label>Exchange:</label>
+    <select name="exchange" required>
+        <option value="NSE" {% if stock.exchange == 'NSE' or not stock.exchange %}selected{% endif %}>NSE (National Stock Exchange)</option>
+        <option value="BSE" {% if stock.exchange == 'BSE' %}selected{% endif %}>BSE (Bombay Stock Exchange)</option>
+    </select>
+
+    <label>Quantity:</label>
+    <input name="quantity" type="number" value="{{ stock.quantity }}" required>
+
+    <label>Buy Price:</label>
+    <input name="buy_price" type="number" step="0.01" value="{{ stock.buy_price }}" required>
+
+    <label>Buy Date:</label>
+    <input name="buy_date" type="date" value="{{ stock.buy_date }}" required>
+
+    <button type="submit">Update Stock</button>
+    <a href="/dashboard">Cancel</a>
+</form>
+{% endblock %}

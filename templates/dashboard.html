@@ -5,42 +5,110 @@
 
 <h3>Add Stock</h3>
 <form method="POST">
-    <input name="symbol" id="symbolInput" placeholder="Search NSE Stock (TCS, Reliance)" autocomplete="OFF" required>
+    <!-- Stock Symbol Input with Search -->
+    <input name="symbol" id="symbolInput" placeholder="Search Stock (TCS, RELIANCE or BSE code 532540)" autocomplete="OFF" required>
     <ul id = "searchResults"></ul>
+
+    <!-- Exchange Selection -->
+    <label for="exchange">Exchange:</label>
+    <select name="exchange" id="exchange" required>
+        <option value="NSE" selected>NSE (National Stock Exchange)</option>
+        <option value="BSE">BSE (Bombay Stock Exchange)</option>
+    </select>
+
+    <!-- Other Stock Details -->
     <input name="quantity" type="number" placeholder="Quantity" required>
     <input name="buy_price" type="number" step="0.01" placeholder="Buy Price" required>
     <input name="buy_date" type="date" placeholder="Buy Date" required>
+
     <button type="submit">Add Stock</button>
 </form>
 
 <hr>
 
-<h3> Your Investments</h3>
+<h3>Your Investments</h3>
+
+{% if stocks %}
+<!-- Portfolio Summary -->
+<div class="portfolio-summary">
+    <div class="summary-card">
+        <h4>Total Invested</h4>
+        <p class="amount">₹{{ summary.total_invested }}</p>
+    </div>
+    <div class="summary-card">
+        <h4>Current Value</h4>
+        <p class="amount">₹{{ summary.total_current_value }}</p>
+    </div>
+    <div class="summary-card {% if summary.total_profit >= 0 %}profit{% else %}loss{% endif %}">
+        <h4>Total P/L</h4>
+        <p class="amount">₹{{ summary.total_profit }}</p>
+        <p class="percent">{{ summary.total_percent }}%</p>
+    </div>
+</div>
+
+<button onclick="showPortfolioInsights()" class="ai-btn">📊 Get Portfolio AI Insights</button>
+{% endif %}
 
 <table>
     <tr>
         <th>Symbol</th>
+        <th>Exchange</th>
         <th>Quantity</th>
         <th>Buy Price</th>
         <th>Current</th>
         <th>P/L</th>
         <th>%Change</th>
+        <th>AI</th>
         <th>Action</th>
     </tr>
 
     {% for stock in stocks %}
     <tr>
-        <td>{{ stock.symbol }}</td>
-        <td>{{ stock.quantity }}</td>
-        <td>{{ stock.buy_price }}</td>
-        <td>{{ stock.current_price }}</td>
-        <td>{{ stock.profit }}</td>
-        <td>{{ stock.percent }}</td>
         <td>
+            <a href="javascript:void(0)" onclick="openGraph('{{ stock.symbol }}')">
+                {{ stock.symbol }}
+            </a>
+        </td>
+        <td><span class="exchange-badge {{ stock.exchange }}">{{ stock.exchange }}</span></td>
+        <td>{{ stock.quantity }}</td>
+        <td>₹{{ stock.buy_price }}</td>
+        <td>
+            {% if stock.current_price != "N/A" %}
+                ₹{{ stock.current_price }}
+            {% else %}
+                N/A
+            {% endif %}
+        </td>
+        <td class="{% if stock.profit != 'N/A' and stock.profit >= 0 %}positive{% elif stock.profit != 'N/A' %}negative{% endif %}">
+            {% if stock.profit != "N/A" %}
+                ₹{{ stock.profit }}
+            {% else %}
+                N/A
+            {% endif %}
+        </td>
+        <td class="{% if stock.percent != 'N/A' and stock.percent >= 0 %}positive{% elif stock.percent != 'N/A' %}negative{% endif %}">
+            {% if stock.percent != "N/A" %}
+                {{ stock.percent }}%
+            {% else %}
+                N/A
+            {% endif %}
+        </td>
+        <td>
+            <button onclick="showAIPrediction('{{ stock.symbol }}')" class="ai-btn-small">🤖 AI</button>
+        </td>
+        <td>
+            <a href="/edit/{{ stock.id }}">Edit</a> |
             <a href="/delete/{{ stock.id }}">Delete</a>
         </td>
     </tr>
     {% endfor %}
 </table>
+
+<div id="graphModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeGraph()">&times;</span>
+        <canvas id="stockChart"></canvas>
+    </div>
+</div>
 
 {% endblock %}
